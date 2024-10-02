@@ -6,7 +6,9 @@ export default {
     colors: {
       'black':'#343434',
       'white':'#FFFFFF',
-      'purple':'#b266b2'
+      'purple':'#b266b2',
+      'light-gray': '#F5F5F5',
+      'hover-gray': '#EAEAEA',
     },
     extend: {},
   },
