@@ -11,7 +11,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://humnananirudh.github.io/Weather-app",
   "dependencies": {
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
