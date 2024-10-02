@@ -1,13 +1,12 @@
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./components/Navbar";
-import NowCard from "./components/NowCard";
+import NowCard from "./components/NowCard"
 import ForecastCard from "./components/Forecast";
 import HeroCard from "./components/HeroCard";
 import HourlyTempCard from "./components/HourlyTempCards";
-import { useState, useEffect } from "react";
 
 const apikey = import.meta.env.VITE_API_KEY;
-
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -71,7 +70,7 @@ const Weather = () => {
   }, []);
 
   return (
-    <div className="weather-app">
+    <div className="weather-app bg-gray-100 min-h-screen">
       <Navbar
         city={city}
         setCity={setCity}
@@ -79,14 +78,22 @@ const Weather = () => {
         getWeatherByLocation={getWeatherByLocation}
       />
       {weatherData && forecastData && (
-        <div className="grid grid-cols-3 gap-4 mt-6">
-          <div className="col-span-1">
-            <NowCard weatherData={weatherData} />
-            <ForecastCard forecastData={forecastData} />
-          </div>
-          <div className="col-span-2">
-            <HeroCard weatherData={weatherData} />
-            <HourlyTempCard hourlyData={forecastData.list} />
+        <div className="container mx-auto px-4 py-4 sm:py-6 md:py-8">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div className="md:col-span-2">
+                <NowCard weatherData={weatherData} />
+              </div>
+              <div>
+                <ForecastCard forecastData={forecastData} />
+              </div>
+            </div>
+            <div>
+              <HourlyTempCard hourlyData={forecastData.list} />
+            </div>
+            <div>
+              <HeroCard weatherData={weatherData} />
+            </div>
           </div>
         </div>
       )}
